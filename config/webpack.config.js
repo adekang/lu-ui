@@ -371,16 +371,17 @@ module.exports = function (webpackEnv) {
                 {
                   loader: 'svgo-loader',
                   options: {
-                    pretty: true,
                     plugins: [
+                      {'name': 'cleanupAttrs'},
+                      {'name': 'cleanupEnableBackground'},
                       {
-                        name: 'removeAttrs',
-                        params: {
-                          attrs: ['fill'],
-                        },
-                      },
-                    ],
-                  },
+                        'name': 'removeAttrs',
+                        'params': {
+                          'attrs': ['fill', 'fill-rule', 'path:fill', 'path:class']
+                        }
+                      }
+                    ]
+                  }
                 },
               ],
             },
