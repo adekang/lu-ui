@@ -21,7 +21,7 @@ function App() {
         onTouchStart={() => console.log('touch')}
       />
       <hr/>
-      <Input/>
+      <Input placeholder={'请输入文字'}/>
     </div>
   );
 }

@@ -1,9 +1,27 @@
-import React from 'react';
+import React, {useState} from 'react';
 
-const Input: React.FC = () => {
+interface InputProps {
+  type?: string;
+  disabled?: boolean;
+  placeholder?: string;
+}
 
+const Input: React.FC<InputProps> = (props) => {
+  const {
+    type = 'text',
+    disabled,
+    placeholder
+  } = props;
+
+  const [text, setText] = useState<string>('');
+  const getValue = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setText(text => text = e.target.value);
+  };
   return (
-    <input type="text" placeholder="你好" disabled={false}/>
+    <div>
+      <input type={type} placeholder={placeholder} disabled={disabled} onChange={getValue}/>
+      <p>{text}</p>
+    </div>
   );
 
 };
