@@ -1,6 +1,7 @@
 import React from 'react';
-import './App.css';
-import Icon from 'src/components/Icon';
+import './style/App.scss';
+import LIcon from 'src/components/Icon';
+import Input from 'src/components/Input';
 
 function App() {
   const ok = () => {
@@ -10,15 +11,17 @@ function App() {
   return (
     <div>
       <h1>你好</h1>
-      <Icon
+      <LIcon
         name="qq"
-        color="red"
+        color="#00ff00"
         onClick={ok}
         className="red"
         onMouseEnter={() => console.log('enter')}
         onMouseLeave={() => console.log('leave')}
         onTouchStart={() => console.log('touch')}
       />
+      <hr/>
+      <Input/>
     </div>
   );
 }
