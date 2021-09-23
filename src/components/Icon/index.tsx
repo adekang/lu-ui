@@ -21,7 +21,7 @@ const LIcon: React.FC<IconProps> = props => {
       onClick={onClick}
       {...restProps}
     >
-      <use xlinkHref={`#${name}`}/>
+      <use xlinkHref="`#${name}`"/>
     </svg>
   );
 };
