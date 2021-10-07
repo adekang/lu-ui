@@ -322,6 +322,7 @@ module.exports = function (webpackEnv) {
         'src': paths.appSrc,
         'components': paths.appComponents,
         'pages': paths.appPages,
+        'utils': paths.appUtils,
         'store': paths.appStore
       },
       plugins: [

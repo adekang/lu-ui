@@ -2,6 +2,7 @@ import React from 'react';
 import './style/App.scss';
 import LIcon from 'src/components/Icon';
 import Input from 'src/components/Input';
+import LayoutExample from 'components/Layout/layout.example';
 
 function App() {
   const ok = () => {
@@ -22,6 +23,8 @@ function App() {
       />
       <hr/>
       <Input placeholder={'请输入文字'}/>
+      <hr/>
+      <LayoutExample/>
     </div>
   );
 }

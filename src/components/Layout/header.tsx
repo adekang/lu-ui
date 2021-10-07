@@ -1,8 +1,17 @@
 import React from 'react';
+import {scopedClassMaker} from 'src/utils/classes';
 
-const Header: React.FC = () => {
+const sc = scopedClassMaker('gu-layout');
+
+interface Props extends React.HTMLAttributes<HTMLElement> {
+}
+
+const Header: React.FunctionComponent<Props> = (props) => {
+  const {className, ...rest} = props;
   return (
-    <div></div>
+    <div className={sc('header', {extra: className})} {...rest}>
+      header
+    </div>
   );
 };
 
