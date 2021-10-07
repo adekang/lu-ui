@@ -1,17 +1,20 @@
-import React from 'react';
-import './style/App.scss';
-import LIcon from 'src/components/Icon';
-import Input from 'src/components/Input';
-import LayoutExample from 'components/Layout/layout.example';
-
+import React from 'react'
+import './style/App.scss'
+import LIcon from 'src/components/Icon'
+import Input from 'src/components/Input'
+import LayoutExample from 'components/Layout/layout.example'
+import PullToRefresh from 'components/pull-to-refresh'
 function App() {
-  const ok = () => {
-    console.log('ok');
-  };
+	const ok = () => {
+		console.log('ok')
+	}
 
-  return (
-    <div>
-      <h1>你好</h1>
+	return (
+		<div>
+			<h1>你好</h1>
+			<PullToRefresh />
+
+			{/* 
       <LIcon
         name="qq"
         color="#00ff00"
@@ -24,9 +27,9 @@ function App() {
       <hr/>
       <Input placeholder={'请输入文字'}/>
       <hr/>
-      <LayoutExample/>
-    </div>
-  );
+      <LayoutExample/> */}
+		</div>
+	)
 }
 
-export default App;
+export default App
