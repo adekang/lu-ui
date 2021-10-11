@@ -1,5 +1,42 @@
-.lu-content-wrapper {
-	width: 100%;
-	height: 600px;
-	border: 1px solid red;
+.lu {
+	&-content {
+		&-wrapper {
+			position: relative;
+			overflow: hidden;
+			background-color: pink;
+		}
+		transform-origin: left top 0px;
+	}
+
+	&-transition {
+		transition: transform 0.2s;
+	}
+
+	&-indicator {
+		position: absolute;
+		left: 0;
+		width: 100%;
+		text-align: center;
+		height: 56px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		color: grey;
+		border: 1px solid red;
+	}
+
+	&-down .lu-indicator {
+		transform: translateY(-100%);
+		border: 1px solid black;
+	}
+
+	&-up .lu-indicator {
+		transform: translateY(-100%);
+	}
+}
+
+body {
+	border: 1px solid black;
+	height: 100vh;
 }
