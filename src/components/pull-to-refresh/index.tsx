@@ -1,8 +1,9 @@
 import React, { useRef, useEffect, useState, useMemo, useCallback } from 'react'
-import { bindEvents, unbindEvents } from './utils'
+import { bindEvents, unbindEvents, debounce } from './utils'
 import classNames from 'classnames'
 import './index.scss'
 import useTouch from './useTouch'
+const _ = require('lodash')
 
 const isWebView =
 	typeof navigator !== 'undefined' &&
@@ -14,7 +15,14 @@ function setTransform(nodeStyle: any, value: any) {
 	nodeStyle.MozTransform = value
 }
 
-interface Props {}
+interface Props {
+	distanceToRefresh: number
+	onRefresh: () => void
+	getScrollContainer: boolean
+	children: any
+	headerHeight: number
+	className: string
+}
 
 const PullDownStatus = {
 	init: 'init', // 未下拉状态
@@ -28,20 +36,13 @@ const PullDownStatus = {
 // type CUURST = `init` | `pulling` | `loosing` | `loading` | 'finish'
 
 const PullToRefresh: React.FC<Props> = props => {
-	const { children } = props
+	const { distanceToRefresh, onRefresh, headerHeight, children, getScrollContainer, className } =
+		props
 	const containerRef = useRef() as React.MutableRefObject<HTMLDivElement>
 	const contentRef = useRef() as React.MutableRefObject<HTMLDivElement>
 	const touch = useTouch()
 	const dragOnEdge = useRef(false)
 	const ptRefresh = useRef<string>(PullDownStatus.init)
-	const [hight, setHight] = useState(0)
-
-	//  props
-	const distanceToRefresh = 50
-	const damping = 100
-	const onRefresh = () => {
-		console.log('onRefresh')
-	}
 
 	// 活动距离设置
 	const easing = (dy: number) => {
@@ -55,7 +56,6 @@ const PullToRefresh: React.FC<Props> = props => {
 
 	//  获得父级框架
 	const scrollContainer = () => {
-		let getScrollContainer = false
 		return getScrollContainer ? document.body : containerRef.current
 	}
 
@@ -120,12 +120,15 @@ const PullToRefresh: React.FC<Props> = props => {
 	}
 
 	const onTouchMove = (e: TouchEvent) => {
+		if (ptRefresh.current === 'loading') return
+
 		const ele = scrollContainer()
 		touch.move(e)
 		if (touch.offsetX.current > 20 * window.devicePixelRatio) return
 
 		if (touch.startY.current > touch.moveY.current) return
 
+		if (ptRefresh.current === 'loading') return
 		if (!ele) return
 
 		if (isEdge(ele)) {
@@ -139,9 +142,6 @@ const PullToRefresh: React.FC<Props> = props => {
 
 			const distanceY = easing(touch.offsetY.current)
 			contentStyle(distanceY)
-
-			console.log(distanceY)
-
 			update(distanceY)
 
 			if (isWebView && e.changedTouches[0].clientY < 0) {
@@ -149,13 +149,18 @@ const PullToRefresh: React.FC<Props> = props => {
 			}
 		}
 	}
+	let canRefresh = false
 
 	const invokeRefresh = () => {
-		onRefresh?.()
-		update(100, PullDownStatus.finish)
-		setTimeout(() => {
+		let id: any = setTimeout(() => {
+			if (canRefresh) {
+				onRefresh()
+			}
+			canRefresh = false
+			update(100, PullDownStatus.finish)
 			reset()
-		}, 1000)
+			id = null
+		}, 2000)
 	}
 
 	const onTouchEnd = () => {
@@ -164,6 +169,7 @@ const PullToRefresh: React.FC<Props> = props => {
 		}
 		if (ptRefresh.current === 'loading') {
 			contentStyle(56)
+			canRefresh = true
 			invokeRefresh()
 			touch.reset()
 		} else {
@@ -217,13 +223,12 @@ const PullToRefresh: React.FC<Props> = props => {
 	}
 
 	const prefixCls = 'lu'
-
 	const cla = classNames(`${prefixCls}-content`, !dragOnEdge.current && `${prefixCls}-transition`)
 	return (
-		<div ref={containerRef} className={classNames(prefixCls, `${prefixCls}-down`)}>
+		<div ref={containerRef} className={classNames(prefixCls, className, `${prefixCls}-down`)}>
 			<div className={`${prefixCls}-content-wrapper`}>
 				<div ref={contentRef} className={cla}>
-					<div className={`${prefixCls}-indicator`}>
+					<div className={`${prefixCls}-indicator`} style={{ height: headerHeight + 'px' }}>
 						<div>{loadText()}</div>
 					</div>
 					{children}

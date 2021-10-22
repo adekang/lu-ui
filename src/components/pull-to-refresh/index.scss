@@ -1,8 +1,9 @@
 .lu {
 	&-content {
 		&-wrapper {
-			position: relative;
+			height: auto;
 			overflow: hidden;
+			position: relative;
 			background-color: pink;
 		}
 		transform-origin: left top 0px;
@@ -17,12 +18,10 @@
 		left: 0;
 		width: 100%;
 		text-align: center;
-		height: 56px;
 		display: flex;
 		justify-content: center;
 		align-items: center;
-
-		color: grey;
+		background-color: #fff;
 		border: 1px solid red;
 	}
 
@@ -34,9 +33,4 @@
 	&-up .lu-indicator {
 		transform: translateY(-100%);
 	}
-}
-
-body {
-	border: 1px solid black;
-	height: 100vh;
 }

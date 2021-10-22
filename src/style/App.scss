@@ -3,3 +3,12 @@
 	padding: 0;
 	box-sizing: border-box;
 }
+.wrapper {
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+
+	.box {
+		flex: 1;
+	}
+}

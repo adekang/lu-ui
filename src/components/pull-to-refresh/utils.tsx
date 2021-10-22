@@ -45,3 +45,20 @@ export const setAnimation = (style, { transform, transitionDuration }) => {
 	style.webkitTransform = transform
 	style.MozTransform = transform
 }
+
+export function debounce(fn: any, delay: number): any {
+	console.log(fn)
+
+	let timerId: any = null
+	return function () {
+		// @ts-ignore
+		const context = this
+		if (timerId) {
+			window.clearTimeout(timerId)
+		}
+		timerId = setTimeout(() => {
+			fn.apply(context, arguments)
+			timerId = null
+		}, delay)
+	}
+}
