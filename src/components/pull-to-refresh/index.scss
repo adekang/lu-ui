@@ -22,12 +22,10 @@
 		justify-content: center;
 		align-items: center;
 		background-color: #fff;
-		border: 1px solid red;
 	}
 
 	&-down .lu-indicator {
 		transform: translateY(-100%);
-		border: 1px solid black;
 	}
 
 	&-up .lu-indicator {

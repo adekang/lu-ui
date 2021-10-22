@@ -1,9 +1,8 @@
-import React, { useRef, useEffect, useState, useMemo, useCallback } from 'react'
-import { bindEvents, unbindEvents, debounce } from './utils'
+import React, { useRef, useEffect } from 'react'
+import { bindEvents, unbindEvents } from './utils'
 import classNames from 'classnames'
 import './index.scss'
 import useTouch from './useTouch'
-const _ = require('lodash')
 
 const isWebView =
 	typeof navigator !== 'undefined' &&
@@ -20,7 +19,6 @@ interface Props {
 	onRefresh: () => void
 	getScrollContainer: boolean
 	children: any
-	headerHeight: number
 	className: string
 }
 
@@ -32,11 +30,8 @@ const PullDownStatus = {
 	finish: 'finish', // 完成刷新
 }
 
-// type CUURST = `activate` | `deactivate` | `release` | `finish`
-// type CUURST = `init` | `pulling` | `loosing` | `loading` | 'finish'
-
 const PullToRefresh: React.FC<Props> = props => {
-	const { distanceToRefresh, onRefresh, headerHeight, children, getScrollContainer, className } =
+	const { distanceToRefresh, onRefresh, children, getScrollContainer, className } =
 		props
 	const containerRef = useRef() as React.MutableRefObject<HTMLDivElement>
 	const contentRef = useRef() as React.MutableRefObject<HTMLDivElement>
@@ -205,21 +200,7 @@ const PullToRefresh: React.FC<Props> = props => {
 	}, [])
 
 	const loadText = () => {
-		if (ptRefresh.current === 'init') {
-			return <b>init</b>
-		}
-		if (ptRefresh.current === 'pulling') {
-			return <b>pulling</b>
-		}
-		if (ptRefresh.current === 'loosing') {
-			return <b>loosing</b>
-		}
-		if (ptRefresh.current === 'loading') {
-			return <b>loading</b>
-		}
-		if (ptRefresh.current === 'finish') {
-			return <b>finish</b>
-		}
+		return <div>loading</div>
 	}
 
 	const prefixCls = 'lu'
@@ -228,7 +209,7 @@ const PullToRefresh: React.FC<Props> = props => {
 		<div ref={containerRef} className={classNames(prefixCls, className, `${prefixCls}-down`)}>
 			<div className={`${prefixCls}-content-wrapper`}>
 				<div ref={contentRef} className={cla}>
-					<div className={`${prefixCls}-indicator`} style={{ height: headerHeight + 'px' }}>
+					<div className={`${prefixCls}-indicator`} style={{ minHeight: distanceToRefresh + 'px' }}>
 						<div>{loadText()}</div>
 					</div>
 					{children}

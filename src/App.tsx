@@ -52,7 +52,6 @@ function App() {
 			<h1>你好</h1>
 			<PullToRefresh
 				distanceToRefresh={56}
-				headerHeight={56}
 				onRefresh={refresh}
 				getScrollContainer={true}
 				className='box'
