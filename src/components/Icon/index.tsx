@@ -1,5 +1,5 @@
 import React from 'react';
-import './importIcons';
+import './importIcons.ts';
 import './index.scss';
 import classes from 'src/utils/classes';
 
@@ -21,7 +21,7 @@ const LIcon: React.FC<IconProps> = props => {
       onClick={onClick}
       {...restProps}
     >
-      <use xlinkHref="`#${name}`"/>
+      <use xlinkHref={`#${name}`}/>
     </svg>
   );
 };
