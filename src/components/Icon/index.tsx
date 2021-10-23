@@ -10,7 +10,7 @@ interface IconProps extends React.SVGAttributes<SVGElement> {
   onClick?: () => void;
 }
 
-const LIcon: React.FC<IconProps> = props => {
+const Icon: React.FC<IconProps> = props => {
   const {name, color = '#333', onClick, className = '', ...restProps} = props;
 
   return (
@@ -26,4 +26,4 @@ const LIcon: React.FC<IconProps> = props => {
   );
 };
 
-export default LIcon;
+export default Icon;

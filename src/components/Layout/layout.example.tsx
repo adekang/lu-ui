@@ -4,6 +4,7 @@ import Header from 'components/Layout/header';
 import Footer from 'components/Layout/footer';
 import Content from 'components/Layout/content';
 import Aside from 'components/Layout/aside';
+import './layout.exmaple.scss';
 
 export default () => {
 
