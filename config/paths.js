@@ -66,6 +66,7 @@ module.exports = {
   appReducers: resolveApp('src/reducers'),
   appLayouts: resolveApp('src/layouts'),
   appPages: resolveApp('src/pages'),
+  appStyle: resolveApp('src/style'),
   appUtils: resolveApp('src/utils'),
   appStore: resolveApp('src/store'),
   appTsConfig: resolveApp('tsconfig.json'),

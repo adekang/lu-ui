@@ -1,8 +1,18 @@
 import React from 'react';
+import {scopedClassMaker} from 'utils/classes';
 
-const Content: React.FC = () => {
+const sc = scopedClassMaker('lu-layout');
+
+interface Props extends React.HTMLAttributes<HTMLElement> {
+}
+
+const Content: React.FC<Props> = (props) => {
+  const {className, ...rest} = props;
+
   return (
-    <div></div>
+    <div className={sc('content', {extra: className})} {...rest}>
+      {props.children}
+    </div>
   );
 };
 

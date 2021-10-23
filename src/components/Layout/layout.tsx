@@ -3,7 +3,7 @@ import './layout.scss';
 import Aside from './aside';
 import {scopedClassMaker} from 'src/utils/classes';
 
-const sc = scopedClassMaker('gu-layout');
+const sc = scopedClassMaker('lu-layout');
 
 interface Props extends React.HTMLAttributes<HTMLElement> {
   children: ReactElement | Array<ReactElement>;

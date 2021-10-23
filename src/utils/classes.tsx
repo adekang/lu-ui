@@ -12,10 +12,11 @@ interface ClassToggles {
   [K: string]: boolean;
 }
 
-const scopedClassMaker = (prefix: string) =>
-  (name: string | ClassToggles, options?: Options) =>
+function scopedClassMaker(prefix: string) {
+
+  return (name: string | ClassToggles, options?: Options) =>
     Object
-      .entries(name)
+      .entries(name instanceof Object ? name : {[name]: name})
       .filter(kv => kv[1] !== false)
       .map(kv => kv[0])
       .map(name => [prefix, name]
@@ -23,5 +24,6 @@ const scopedClassMaker = (prefix: string) =>
         .join('-'))
       .concat(options && options.extra || [])
       .join(' ');
+}
 
 export {scopedClassMaker};

@@ -320,6 +320,7 @@ module.exports = function (webpackEnv) {
         }),
         ...(modules.webpackAliases || {}),
         'src': paths.appSrc,
+        'style': paths.appStyle,
         'components': paths.appComponents,
         'pages': paths.appPages,
         'utils': paths.appUtils,
