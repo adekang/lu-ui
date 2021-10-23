@@ -1,0 +1,70 @@
+.lu {
+  min-height: 100vh;
+
+  &-header {
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+
+    &-logo {
+      padding: 0 16px;
+      width: 40px;
+      height: 40px;
+
+      > img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+
+  &-aside {
+    border-right: 1px solid #ffffff;
+    margin-right: 16px;
+
+    h2 {
+      padding: 16px;
+      font-size: 18px;
+    }
+
+    ul {
+      min-width: 12em;
+
+      > li {
+        padding: 8px 0;
+
+        a {
+          padding: 8px 16px;
+          color: #333;
+          display: block;
+
+          &:hover {
+            color: #34a853;
+          }
+
+          &.active {
+            background-color: #1890ff;
+          }
+        }
+      }
+    }
+  }
+
+  &-content {
+
+  }
+
+  &-footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    color: #666;
+    border-top: 1px solid #333;
+  }
+}
+
+.example {
+  padding: 16px 0;
+}
+
