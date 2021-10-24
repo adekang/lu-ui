@@ -8,9 +8,6 @@ import './index.scss';
 import logoImg from 'src/assets/logo.png';
 import IconDemo from 'src/pages/Icon/icon.demo';
 
-const z = require('!!raw-loader!../../components/Icon/index.tsx');
-console.log(z.default);
-
 export default () => {
 
   return (
