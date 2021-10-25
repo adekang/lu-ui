@@ -23,7 +23,7 @@ const InputExample = () => {
       />
       <Input
         style={{width: '300px'}}
-        defaultValue="large size"
+        placeholder="large size"
         size="lg"
       />
       <Input
@@ -33,12 +33,12 @@ const InputExample = () => {
       />
       <Input
         style={{width: '300px'}}
-        defaultValue="prepend text"
+        placeholder="prepend text"
         prepend="https://"
       />
       <Input
         style={{width: '300px'}}
-        defaultValue="google"
+        placeholder="google"
         append=".com"
       />
     </div>
