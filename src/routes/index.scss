@@ -1,11 +1,14 @@
 .lu {
   min-height: 100vh;
+  color: #455a64;
+
 
   &-header {
     display: flex;
     align-items: center;
     padding: 10px 0;
-    border-bottom: 1px solid #ffffff;
+    box-shadow: 0 8px 50px #ffffff;
+    color: inherit;
 
     &-logo {
       padding: 0 16px;
@@ -19,8 +22,10 @@
   }
 
   &-aside {
-    border-right: 1px solid #ffffff;
     margin-right: 16px;
+    background-color: #fff;
+    color: inherit;
+    box-shadow: 0 8px 12px #ebedf0;
 
     h2 {
       padding: 16px;
@@ -31,19 +36,20 @@
       min-width: 12em;
 
       > li {
-        padding: 8px 0;
+        padding: 8px 8px;
 
         a {
-          padding: 8px 16px;
-          color: #333;
+          padding: 12px 24px;
+          color: #455a64;
           display: block;
+          border-radius: 16px;
 
           &:hover {
-            color: #34a853;
+            color: #4fc08d;
           }
 
           &.active {
-            background-color: #1890ff;
+            background-color: #ebfff0;
           }
         }
       }
