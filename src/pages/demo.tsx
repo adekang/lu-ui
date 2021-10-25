@@ -2,6 +2,7 @@ import * as React from 'react';
 import {useState} from 'react';
 import {Prism as SyntaxHighlighter} from 'react-syntax-highlighter';
 import {darcula} from 'react-syntax-highlighter/dist/esm/styles/prism';
+import Button from 'components/Button/button';
 
 
 interface Props {
@@ -31,7 +32,7 @@ const Demo: React.FunctionComponent<Props> = (props) => {
         {props.children}
       </div>
       <div>
-        <button onClick={() => setCodeVisible(!codeVisible)}>查看代码</button>
+        <Button size="sm" onClick={() => setCodeVisible(!codeVisible)}>查看代码</Button>
         {
           codeVisible &&
           <Code lang="jsx">

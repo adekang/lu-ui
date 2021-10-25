@@ -4,7 +4,7 @@ import LayoutExample from 'components/Layout/layout.example';
 import {Layout, Content, Aside, Footer, Header} from 'components/Layout/layout';
 import './index.scss';
 import logoImg from 'src/assets/logo.png';
-import IconDemo from 'src/pages/Icon/icon.demo';
+import IconDemo from 'components/Icon/icon.demo';
 import ButtonDemo from 'components/Button/ButtonDemo';
 import InputDemo from 'components/Input/InputDemo';
 import MenuDemo from 'components/Menu/MenuDemo';

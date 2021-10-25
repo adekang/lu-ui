@@ -1,6 +1,6 @@
 import IconExample from './IconExample';
 import React from 'react';
-import Demo from '../demo';
+import Demo from '../../pages/demo';
 
 const IconDemo = () => {
   return (
