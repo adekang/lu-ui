@@ -1,13 +1,12 @@
 import React from 'react';
-import './style/App.scss';
-import Index from 'src/routes';
+import Router from 'src/routes';
 
 
 function App() {
 
   return (
     <>
-      <Index/>
+      <Router/>
     </>
   );
 }

@@ -31,12 +31,14 @@
 
   .submenu-item {
     position: relative;
+
     .submenu-title {
       display: flex;
       align-items: center;
     }
 
     .arrow-icon {
+      vertical-align: middle;
       transition: transform .25s ease-in-out;
       margin-left: 3px;
     }
