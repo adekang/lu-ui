@@ -14,7 +14,7 @@
   }
 
   &-hasAside {
-    flex-direction: row;
+    flex-direction: row !important;
 
     .lu-layout {
       flex-direction: column;
