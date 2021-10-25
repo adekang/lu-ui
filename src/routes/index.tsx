@@ -10,6 +10,7 @@ import MenuDemo from 'components/Menu/MenuDemo';
 import LayoutDemo from 'components/Layout/LayoutDemo';
 
 import Doc from 'src/pages/Doc';
+import Icon from 'components/Icon';
 
 
 const routes = [
@@ -48,8 +49,12 @@ export default () => {
         <Header className="lu-header">
           <div className="lu-header-logo">
             <img src={logoImg} alt=""/>
+            <h1>lu-ui</h1>
           </div>
-          <h1>组件</h1>
+
+          <a href="https://github.com/adekang/lu-ui">
+            <Icon name="github" className="github"/>
+          </a>
         </Header>
         <Layout>
           <Aside className="lu-aside">
