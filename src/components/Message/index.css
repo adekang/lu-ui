@@ -1,0 +1,27 @@
+.xMessage {
+  display: flex;
+  flex-direction: row;
+  padding: 5px;
+  align-items: center;
+}
+.xMessage .iconWrap {
+  width: 36px;
+  display: inherit;
+  font-size: 16px;
+}
+.xMessage .iconWrap .info {
+  fill: #1890ff;
+}
+.xMessage .iconWrap .success {
+  fill: #52c41a;
+}
+.xMessage .iconWrap .warning {
+  fill: #faad14;
+}
+.xMessage .iconWrap .error {
+  fill: #f5222d !important;
+}
+.xMessage .xMessageTit {
+  font-size: 16px;
+  font-weight: 500;
+}
