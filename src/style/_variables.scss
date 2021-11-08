@@ -30,7 +30,7 @@ $danger:        $red !default;
 $light:         $gray-100 !default;
 $dark:          $gray-800 !default;
 
-$theme-colors: 
+$theme-colors:
 (
   "primary":    $primary,
   "secondary":  $secondary,
@@ -184,6 +184,14 @@ $btn-padding-x:               .75rem !default;
 $btn-font-family:             $font-family-base !default;
 $btn-font-size:               $font-size-base !default;
 $btn-line-height:             $line-height-base !default;
+
+$btn-height-sm:                28px;
+$btn-height:                   34px;
+$btn-height-lg:                40px;
+
+$btn-padding-sm:             0 14px !default;
+$btn-padding:                0 10px !default;
+$btn-padding-lg:             0 18px !default;
 
 //不同大小按钮的 padding 和 font size
 $btn-padding-y-sm:            .25rem !default;

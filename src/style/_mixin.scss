@@ -1,5 +1,6 @@
-@mixin button-size($padding-y, $padding-x, $font-size, $border-radius) {
-  padding: $padding-y $padding-x;
+@mixin button-size($padding, $font-size, $border-radius,$btn-height) {
+  height: $btn-height;
+  padding: $padding;
   font-size: $font-size;
   border-radius: $border-radius;
 }
@@ -18,19 +19,19 @@
   &:hover {
     color: $hover-color;
     background: $hover-background;
-    border-color: $hover-border;    
+    border-color: $hover-border;
   }
   &:focus,
   &.focus {
     color: $hover-color;
     background: $hover-background;
-    border-color: $hover-border;    
+    border-color: $hover-border;
   }
   &:disabled,
   &.disabled {
     color: $color;
     background: $background;
-    border-color: $border;    
+    border-color: $border;
   }
 }
 

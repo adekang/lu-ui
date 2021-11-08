@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import Model from 'components/Model/Model';
 import Button from 'components/Button/button';
 
-const IconExample: React.FC = () => {
+const ModelExample: React.FC = () => {
   const [visible, setVisible] = useState(false);
   const ok = () => {
     console.log('ok');
@@ -30,4 +30,4 @@ const IconExample: React.FC = () => {
   );
 };
 
-export default IconExample;
+export default ModelExample;

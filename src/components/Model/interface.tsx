@@ -9,5 +9,5 @@ export interface ModelProps {
   okText?: string;
   cancelText?: string;
   title?: string;
-  children?: React.ReactElement[];
+  children?: React.ReactNode;
 }
