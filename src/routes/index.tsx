@@ -9,6 +9,7 @@ import InputDemo from 'components/Input/InputDemo';
 import MenuDemo from 'components/Menu/MenuDemo';
 import LayoutDemo from 'components/Layout/LayoutDemo';
 import ModelDemo from 'components/Model/ModelDemo';
+import MessageExample from 'components/Message/MessageExmaple';
 
 import Doc from 'src/pages/Doc';
 import Icon from 'components/Icon';
@@ -37,6 +38,9 @@ const routes = [
   {
     path: '/model',
     component: ModelDemo,
+  },  {
+    path: '/message',
+    component: MessageExample,
   },
   {
     path: '/',
@@ -51,6 +55,7 @@ const layout = [
   {path: '/input', navName: 'Input'},
   {path: '/menu', navName: 'Menu'},
   {path: '/model', navName: 'Model'},
+  {path: '/message', navName: 'Message'},
 ];
 
 export default () => {
