@@ -21,6 +21,7 @@ const Message = (function () {
 	const destroy = () => {
 		message.destroy()
 	}
+
 	/**
 	 * notice类型弹窗
 	 * @param {config}  object 提示框配置属性
